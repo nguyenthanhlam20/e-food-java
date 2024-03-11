@@ -41,8 +41,8 @@ public class ManagerController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
         Account a = (Account) session.getAttribute("acc");
-        ProductDBContext sdb =new  ProductDBContext();
-        List<Product> products = sdb.getProductsBySellId(a.getUid());
+        ProductDBContext sdb = new ProductDBContext();
+        List<Product> products = sdb.getProductsWithPagging(1, 1000);
         List<Category> listCategories = new CategoryDBContext().getAllCategories();
         request.setAttribute("listCategories", listCategories);
         request.setAttribute("products", products);

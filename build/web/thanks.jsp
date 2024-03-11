@@ -24,46 +24,67 @@
             rel="stylesheet"
             />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+       	<link href="https://fonts.googleapis.com/css?family=Hind:400,700" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+        <link type="text/css" rel="stylesheet" href="css/slick.css" />
+        <link type="text/css" rel="stylesheet" href="css/slick-theme.css" />
+        <link type="text/css" rel="stylesheet" href="css/nouislider.min.css" />
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link type="text/css" rel="stylesheet" href="css/styles.css" />
     </head>
     <body>
         <%@include file="components/navBarComponent.jsp" %>
-
-        <div class="container" style="min-height: 1000px">
-            <div class="alert alert-success text-center mt-5" role="alert" >
-                <h3>List Products</h3>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Image</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Quantity</th>
-                                    <th scope="col">Total Price</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <c:forEach items="${cartss}" var="C">
-                                    <tr>
-                                <input type="hidden" name="productId" value="${C.value.product.id}"/>
-                                <th scope="row">${C.value.product.id}</th>
-                                <td>${C.value.product.name}</td>
-                                <td><img src="${C.value.product.imageUrl}" width="50"/></td>
-                                <td>${C.value.product.price}</td>
-                                <td>${C.value.quantity}</td>
-                                <td>${C.value.product.price*C.value.quantity}</td>
-                                </tr>
-                            </c:forEach>
-                            </tbody>
-                        </table>
-                        <h3>Total Amount: $${totalPrice}</h3>
-                Order successfully, Thank you very much...
-                <div class="text-center mt-2">
-                    <a class="btn btn-outline-primary" href="home">Continue Shopping</a>
-                </div>
+        <div id="breadcrumb">
+            <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="home">Home</a></li>
+                    <li class="active">Thank you</li>
+                </ul>
             </div>
         </div>
+        <div class="section">
+            <div class="container">
+                <h3>Order Details</h3>
+
+                <div class="table-container">
+                    <table class="useful-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Total Price</th>
+                            </tr>
+                        </thead>
+                        <tbody class="useful-table-body">
+                            <c:forEach items="${cartss}" var="C">
+                                <tr>
+                            <input type="hidden" name="productId" value="${C.value.product.id}"/>
+                            <th scope="row">${C.value.product.id}</th>
+                            <td>${C.value.product.name}</td>
+                            <td><img src="${C.value.product.imageUrl}" width="50"/></td>
+                            <td>${C.value.product.price}</td>
+                            <td>${C.value.quantity}</td>
+                            <td>${C.value.product.price*C.value.quantity}</td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <h3 style="margin-top: 20px;">Total Amount: $${totalPrice}</h3>
+                <span style="color: red; font-weight: bold;"> Order successfully, Thank you very much...</span>
+                <div class="text-center mt-2">
+                    <a class="btn btn-primary" href="home">Continue Shopping</a>
+                </div>
+            </div>
+
+
+        </div>
+
         <%@include file="components/footerComponent.jsp" %>
     </body>
 </html>

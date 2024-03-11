@@ -56,7 +56,7 @@
                         <div class="banner banner-1">
                             <img src="img/banner03.jpg" alt="">
                             <div class="banner-caption">
-                                <h1 class="white-color">New Product <span>Collection</span></h1>
+                                <h1 class="white-color">New Food <span>Collection</span></h1>
                                 <button class="primary-btn">Shop Now</button>
                             </div>
                         </div>

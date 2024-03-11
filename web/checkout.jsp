@@ -102,11 +102,11 @@
                     <c:otherwise>
                         <h3>Checkout</h3>
                         <div class="row">
-                            <form id="checkout-form" class="clearfix" action="checkout">
+                            <form id="checkout-form" class="clearfix" method="post" action="checkout">
                                 <div class="col-md-6">
                                     <div class="billing-details">
                                         <div class="section-title">
-                                            <h3 class="title">Thông tin hóa đơn</h3>
+                                            <h3 class="title">Bill Details</h3>
                                         </div>
                                         <div class="form-group">
                                             <input class="input" type="text"  name="name" placeholder="Fullname">
@@ -127,11 +127,11 @@
                                 <div class="col-md-6">
                                     <div class="shiping-methods">
                                         <div class="section-title">
-                                            <h4 class="title">Phương thức giao hàng</h4>
+                                            <h4 class="title">Shipping method</h4>
                                         </div>
                                         <div class="input-checkbox">
                                             <input type="radio" name="shipping" id="shipping-1" checked>
-                                            <label for="shipping-1">Giao hàng miễn phí -  $0.00</label>
+                                            <label for="shipping-1">Free ship -  $0.00</label>
                                         </div>
                                     </div>
 
@@ -141,7 +141,7 @@
                                         </div>
                                         <div class="input-checkbox">
                                             <input type="radio" name="payments" id="payments-1" checked>
-                                            <label for="payments-1">Trả tiền mặt</label>
+                                            <label for="payments-1">Cash $</label>
                                         </div>
                                     </div>
                                 </div>

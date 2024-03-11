@@ -39,9 +39,9 @@
                         <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                     </div>
                     <span>or use your username for registeration</span>
-                    <input type="text" placeholder="Name" name="Name">
-                    <input type="text" placeholder="Username" name="Username" >
-                    <input type="password" placeholder="Password" name="Password">
+                    <input type="text" placeholder="Username" name="username" >
+                    <input type="password" placeholder="Password" name="password">
+                    <input type="password" placeholder="Confirm Password" name="confirmPassword">
                     <button type="submit" >Sign Up</button>
                 </form>
             </div>
@@ -55,8 +55,8 @@
                         <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                     </div>
                     <span>or use your username & password</span>
-                    <input type="text" name="Username" placeholder="Username" value="cd">
-                    <input type="password" placeholder="Password" name="Password" value="1234">
+                    <input type="text" name="Username" placeholder="Username" >
+                    <input type="password" placeholder="Password" name="Password" >
                     <a href="#">Forget Your Password?</a>
                     <button type="submit">Sign In</button>
                 </form>

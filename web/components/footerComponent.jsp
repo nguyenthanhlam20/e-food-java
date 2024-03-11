@@ -69,12 +69,10 @@
                 <div class="footer">
                     <h3 class="footer-header">Stay Connected</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-                    <form>
-                        <div class="form-group">
-                            <input class="input" placeholder="Enter Email Address">
-                        </div>
-                        <button class="primary-btn">Join Newslatter</button>
-                    </form>
+                    <div class="form-group">
+                        <input class="input" placeholder="Enter Email Address">
+                    </div>
+                    <button class="primary-btn">Join Newslatter</button>
                 </div>
             </div>
             <!-- /footer subscribe -->

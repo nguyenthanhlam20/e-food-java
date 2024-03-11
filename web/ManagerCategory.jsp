@@ -20,79 +20,92 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link href="css/ManagerProduct.css" rel="stylesheet" type="text/css"/>
-        <style>
-            img{
-                width: 200px;
-                height: 120px;
-            }
-        </style>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"    rel="stylesheet" />
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+       	<link href="https://fonts.googleapis.com/css?family=Hind:400,700" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+        <link type="text/css" rel="stylesheet" href="css/slick.css" />
+        <link type="text/css" rel="stylesheet" href="css/slick-theme.css" />
+        <link type="text/css" rel="stylesheet" href="css/nouislider.min.css" />
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link type="text/css" rel="stylesheet" href="css/styles.css" />
         <script>
             function back() {
                 window.location.href = "home";
             }
-             function doDelete(id)
+            function doDelete(id)
             {
                 var c = confirm("Are you sure?");
-                if(c)
+                if (c)
                 {
-                    window.location.href = "delete?pid="+id;
+                    window.location.href = "delete?pid=" + id;
                 }
             }
         </script>
 
     <body>
+        <%@include file="components/navBarComponent.jsp" %>
+        <div id="breadcrumb">
+            <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="home">Home</a></li>
+                    <li class="active">Manage Category</li>
+                </ul>
+            </div>
+        </div>
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <h3>List Category</h3>
+                    </div>
+                    <div class="col-sm-12 col-md-6" style="text-align: end; margin-bottom: 10px;">
+                        <a href="#addEmployeeModal"  class="btn btn-success" data-toggle="modal">
+                            <i class="material-icons">&#xE147;</i> 
+                            Add New Product
+                        </a>
 
-        <div class="container">
-            <div class="table-wrapper">
-                <div class="table-title">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <h2>Manager <b>Category</b></h2>
-                        </div>
-                        <div class="col-sm-6">
-                            <a href="#addEmployeeModal"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Product</span></a>
-					
-                        </div>
                     </div>
                 </div>
-                <table class="table table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th>
-                                <span class="custom-checkbox">
-                                    <input type="checkbox" id="selectAll">
-                                    <label for="selectAll"></label>
-                                </span>
-                            </th>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <c:forEach items="${listCategories}" var="c">
+                <div class="table-container">
+                    <table class="useful-table">
+                        <thead>
                             <tr>
-                                <td>
+                                <th>
                                     <span class="custom-checkbox">
-                                        <input type="checkbox" id="checkbox1" name="options[]" value="1">
-                                        <label for="checkbox1"></label>
+                                        <input type="checkbox" id="selectAll">
+                                        <label for="selectAll"></label>
                                     </span>
-                                </td>
-                                <td>${c.cid}</td>
-                                <td>${c.cname}</td>
-                             
-                                <td>
-                                    <a href="loadCategory?cid=${c.cid}"  class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                </td>
+                                </th>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Actions</th>
                             </tr>
-                        </c:forEach>
-                    </tbody>
-                </table>
-                
-            </div>
-            <a href="#">
-                <button type="button" class="btn btn-primary" onclick="back()">Back to home</button>
+                        </thead>
+                        <tbody class="useful-table-body">
+                            <c:forEach items="${listCategories}" var="c">
+                                <tr>
+                                    <td>
+                                        <span class="custom-checkbox">
+                                            <input type="checkbox" id="checkbox1" name="options[]" value="1">
+                                            <label for="checkbox1"></label>
+                                        </span>
+                                    </td>
+                                    <td>${c.cid}</td>
+                                    <td>${c.cname}</td>
 
+                                    <td>
+                                        <a href="loadCategory?cid=${c.cid}"  class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+
+                        </tbody>
+                    </table>
+                </div>
+                <button type="button" class="btn btn-primary" style="margin-top: 10px;" onclick="back()">Back to home</button>
+
+            </div>
         </div>
         <!-- Edit Modal HTML -->
         <div id="addEmployeeModal" class="modal fade">
@@ -108,7 +121,7 @@
                                 <label>Name</label>
                                 <input name="name" type="text" class="form-control" required >
                             </div>
-                           
+
                         </div>
                         <div class="modal-footer">
                             <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
@@ -118,9 +131,10 @@
                 </div>
             </div>
         </div>
-        
-        
-        
+
+
+
+        <%@include file="components/footerComponent.jsp" %>
 
 
         <script src="js/ManagerProduct.js" type="text/javascript"></script>

@@ -15,7 +15,6 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
@@ -115,7 +114,6 @@ public class CheckOutController extends BaseRequiredAuthenController {
         //tinh tong tien
         double totalPrice = 0;
         for (Map.Entry<Integer, Cart> entry : carts.entrySet()) {
-            Integer productId = entry.getKey();
             Cart cart = entry.getValue();
 
             totalPrice += cart.getQuantity() * cart.getProduct().getPrice();
@@ -128,7 +126,9 @@ public class CheckOutController extends BaseRequiredAuthenController {
         int orderId = new OrderDBcontext().createReturnId(order);
         //Lưu OrderDetail
 
-        new OrderDetailDBcontext().saveCart(orderId, carts);
+        if (totalPrice > 0) {
+            new OrderDetailDBcontext().saveCart(orderId, carts);
+        }
 
         session.removeAttribute("carts");
         request.setAttribute("cartss", carts);
